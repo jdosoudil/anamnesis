@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "archivo-black";
+    font-weight: 300;
+    font-style: normal;
+    src: url("../fonts/ArchivoBlack-Regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "anonymous-pro";
+    font-weight: 400;
+    font-style: normal;
+    src: url("../fonts/AnonymousPro-Regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "anonymous-pro";
+    font-weight: 700;
+    font-style: normal;
+    src: url("../fonts/AnonymousPro-Bold.woff2") format("woff2");
+  }
+
+  body {
+    @apply w-screen h-screen;
+  }
+
+  .type {
+    color: transparent;
+    background:
+      linear-gradient(-90deg,black 5px, transparent 0) 10px 0,
+      linear-gradient(black 0 0) 0 0;
+    background-size: calc(var(--n) * 1ch) 200%;
+    -webkit-background-clip: padding-box, text;
+    background-clip: padding-box, text;
+    background-repeat: no-repeat;
+  }
+}
