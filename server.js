@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "frontend/build")));
 
-app.get("/:lang(en|fr|it|cs)?", (req, res) => {
+app.get("/:lang(en|fr|it|cs|de)?", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend/build/index.html"));
 });
 
@@ -20,10 +20,11 @@ const openai = new OpenAI({
 });
 
 const promptIds = {
-  en: process.env.PROMPT_EN_ID,
+  en: process.env.PROMPT_ID_EN,
   fr: process.env.PROMPT_ID_FR || process.env.PROMPT_EN_ID,
   it: process.env.PROMPT_ID_IT || process.env.PROMPT_EN_ID,
-  cs: process.env.PROMPT_ID_CS || process.env.PROMPT_EN_ID
+  cs: process.env.PROMPT_ID_CS || process.env.PROMPT_EN_ID,
+  de: process.env.PROMPT_ID_DE || process.env.PROMPT_EN_ID
 };
 
 app.listen(8080, () => {
@@ -32,7 +33,7 @@ app.listen(8080, () => {
 
 function getLangFromPath(req) {
   const lang = req.path.split("/")[1];
-  return ["en", "fr", "it", "cs"].includes(lang) ? lang : "en";
+  return ["en", "fr", "it", "cs", "de"].includes(lang) ? lang : "en";
 }
 
 function mapFrontendMessagesToResponsesInput(messages) {
@@ -76,6 +77,7 @@ app.post("/en/save-to-file", saveToFile);
 app.post("/fr/save-to-file", saveToFile);
 app.post("/it/save-to-file", saveToFile);
 app.post("/cs/save-to-file", saveToFile);
+app.post("/de/save-to-file", saveToFile);
 
 async function chat(req, res) {
   try {
@@ -137,3 +139,4 @@ app.post("/en/chat", chat);
 app.post("/fr/chat", chat);
 app.post("/it/chat", chat);
 app.post("/cs/chat", chat);
+app.post("/de/chat", chat);

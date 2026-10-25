@@ -45,6 +45,14 @@ const router = createBrowserRouter([
     )
   },
   {
+    path: '/de',
+    element: (
+      <IntlProvider messages={locales.de} locale="de" defaultLocale="en">
+        <App />
+      </IntlProvider>
+    )
+  },
+  {
     path: '/cs',
     element: (
       <IntlProvider messages={locales.cs} locale="cs" defaultLocale="en">

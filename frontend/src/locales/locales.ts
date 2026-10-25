@@ -29,6 +29,16 @@ const locales = {
     inputSubmit: "Invia",
     forgetButtonLabel: "Dimentica tutto"
   },
+  "de": {
+    backendEndpoints_save: "/de/save-to-file",
+    backendEndpoints_chat: "/de/chat",
+    title: "Anamnesis",
+    subtitle: "Denk daran: Es geht um sie, nicht um dich.",
+    inputTitle: "Deine Antwort:",
+    inputPlaceholder: "Um Anweisungen zu erhalten, schreibe einfach \"Hallo\" oder eine andere passende Begrüßung.",
+    inputSubmit: "Senden",
+    forgetButtonLabel: "Alles vergessen"
+  },
   "cs": {
     backendEndpoints_save: "/cs/save-to-file",
     backendEndpoints_chat: "/cs/chat",
